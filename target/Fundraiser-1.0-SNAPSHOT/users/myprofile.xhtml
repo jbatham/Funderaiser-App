@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User List</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="My Profile"/>
+        <br/><br/>
+        <h:outputLabel value="Name:"/>&nbsp;<h:outputText value="#{userViewBean.getMyUser().name}"/>
+        <br/>
+        <h:outputLabel value="Username:"/>&nbsp;<h:outputText value="#{userViewBean.getMyUser().username}"/>
+        <br/><br/>
+        <h:outputLabel value="Bio:"/>&nbsp;<h:outputText value="#{userViewBean.getMyUser().bio}"/>
+        <br/><br/>
+        <h:outputLabel value="Balance:"/>&nbsp;<h:outputText value="#{userViewBean.getMyUser().balance}"/>
+        <br/><br/>
+
+
+        <h:dataTable value="#{userViewBean.getAllMyActivities()}" var="act">
+            <h:column>    				
+                <f:facet name="header">Activity id</f:facet>    				
+                    #{act.id}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>    				
+                <f:facet name="header">Activity name</f:facet>    				
+                    #{act.activityname}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity description</f:facet>
+                    #{act.activitydescription}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity Profile</f:facet>
+                <h:button value="Go" outcome="activityprofile">
+                    <f:param name="theId" value = "#{act.id}"/> 
+                </h:button>
+            </h:column>
+
+            <br/>
+        </h:dataTable>
+
+
+
+
+    </h:body>
+</html>
+

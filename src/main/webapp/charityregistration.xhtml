@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Charity registration page</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Charity Registration Page"/>
+        <br/>
+        <!--<h:link value="Back to index" outcome="index"/>--> 
+        <h:form>
+            Fill in the details and press the register button.
+            <br/>
+            <h:outputLabel for="email" value="*Email - this will be your login:"/>
+            <h:inputText id ="email" value="#{charityRegBean.username}" title="Enter user name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/>
+            <h:outputLabel for="userPassword" value="*Password:"/>
+            <h:inputSecret id ="userPassword" value="#{charityRegBean.userpassword}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/>
+            <h:outputLabel for="charityname" value="*Charity name:"/>
+            <h:inputText id ="charityname" value="#{charityRegBean.charityname}" title="Charity name" required="true" requiredMessage="Mandatory Field"/>
+            <br/>
+            <h:outputLabel for="uniquename" value="*Unique charity name:"/>
+            <h:inputText id ="uniquename" value="#{charityRegBean.uniquename}" title="Unique name" required="true" requiredMessage="Mandatory Field"/>
+            <br/>       
+            <br/>
+            <h:outputLabel for="address" value="*Address:"/>
+            <h:inputText id ="address" value="#{charityRegBean.address}" title="First address line" required="true" requiredMessage="Mandatory Field"/>
+            <br/>
+            <h:outputLabel for="shortdescription" value="*Short description:"/>
+            <h:inputText id ="shortdescription" value="#{charityRegBean.shortdescription}" title="Short description" required="true" requiredMessage="Mandatory Field"/>
+            <br/>
+            <h:commandButton id="register" type="submit" value="Register" action="#{charityRegBean.register}" title="Register Charity"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+    </h:body>
+</html>
+

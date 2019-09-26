@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="THIS IS A PAGE THAT ONLY ADMIN USERS CAN ACCESS"/>
+        <br/>
+        <h:link value="Back to index" outcome="index"/>
+        <br/>
+        <h:dataTable value="#{userViewBean.getAllUsers()}" var="user">
+            <h:column>    				
+                <f:facet name="header">User Identifier</f:facet>    				
+                    #{user.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">User name</f:facet>
+                    #{user.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Password</f:facet>
+                    #{user.userpassword}
+            </h:column>
+            <br/>
+        </h:dataTable>
+    </h:body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User List</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="User Profile"/>
+        <br/><br/><br/>
+        User Details
+        <h:dataTable value="#{userViewBean.getFundraiserById(param['theuser'])}" var="user">
+            <h:column>    				
+                <f:facet name="header">Full Name</f:facet>    				
+                    #{user.name}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">User Bio</f:facet>
+                    #{user.bio}
+            </h:column>
+        </h:dataTable>
+        <br/><br/><br/>
+        User Activities
+        <br/><br/>
+        <h:dataTable value="#{userViewBean.getAllActivitiesFromUserId(param['theuser'])}" var="activity">
+            <h:column>    				
+                <f:facet name="header">Full Name</f:facet>    				
+                    #{activity.activityname}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">User Bio</f:facet>
+                    #{activity.activitydescription}
+            </h:column>
+        </h:dataTable>
+        
+    </h:body>
+</html>
+

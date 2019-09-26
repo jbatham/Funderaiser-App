@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Charity Profile</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Charity profile"/>
+        <br/><br/>
+        <h:outputLabel value="Charity name:"/>&nbsp;<h:outputText value="#{charityViewBean.getMyUser().charityName}"/>
+        <br/>
+        <h:outputLabel value="Username:"/>&nbsp;<h:outputText value="#{charityViewBean.getMyUser().username}"/>
+        <br/><br/>
+        <h:outputLabel value="Description:"/>&nbsp;<h:outputText value="#{charityViewBean.getMyUser().shortdescription}"/>
+        <br/><br/>
+        <h:outputLabel value="Balance:"/>&nbsp;<h:outputText value="#{charityViewBean.getMyUser().balance}"/>
+        <br/><br/>
+        
+
+        <h:dataTable value="#{charityViewBean.getAllMyCauses()}" var="cause">
+            <h:column>    				
+                <f:facet name="header">Cause id</f:facet>    				
+                    #{cause.causeid}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>    				
+                <f:facet name="header">Cause name</f:facet>    				
+                    #{cause.causename}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Amount raised</f:facet> 
+                #{charityViewBean.getAmountRaisedForCause(cause.causeid)}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Cause Profile</f:facet>
+                <h:button value="Go" outcome="causeprofile">
+                    <f:param name="theCause" value = "#{cause.causeid}"/> 
+                </h:button>
+            </h:column>
+        </h:dataTable>
+
+
+
+
+    </h:body>
+</html>
+

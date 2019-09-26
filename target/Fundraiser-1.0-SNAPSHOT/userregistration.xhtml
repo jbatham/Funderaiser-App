@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>User Reg Page</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="User Registration Page"/>
+        <br/>
+        <!--<h:link value="Back to index" outcome="index"/>--> 
+        <h:form>
+            Fill in the details and press the register button.
+            <br/>
+            <h:outputLabel for="username" value="*Email (Used for login):"/>
+            <h:inputText id ="username" value="#{userRegBean.username}" title="Enter email" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/>
+            <h:outputLabel for="userPassword" value="*Password:"/>
+            <h:inputSecret id ="userPassword" value="#{userRegBean.userpassword}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:outputLabel for="name" value="*Full name:"/>
+            <h:inputText id ="name" value="#{userRegBean.name}" title="Write your name" required="true" requiredMessage="Mandatory Field"/>
+            <br/>
+            <h:outputLabel for="bio" value="*User bio:"/>
+            <h:inputText id ="bio" value="#{userRegBean.bio}" title="Write about yourself" required="true" requiredMessage="Mandatory Field"/>
+            <br/>
+            <h:commandButton id="register" type="submit" value="Register" action="#{userRegBean.register}" title="Register User"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+        <h:button value="TODO" outcome=""/>
+        <br/><br/>
+        <h:button value="TODO" outcome=""/>
+    </h:body>
+</html>
+

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cause Profile</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Cause Profile"/>
+        <br/><br/><br/>
+        Cause Details
+        <h:dataTable value="#{charityViewBean.getCauseById(param['theCause'])}" var="cause">
+            <h:column>    				
+                <f:facet name="header">Cause Name</f:facet>    				
+                    #{cause.causename}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Cause Description</f:facet>
+                    #{cause.causedescription}
+            </h:column>
+        </h:dataTable>
+        <br/><br/><br/>
+
+        Activities
+        <br/><br/>
+        <h:dataTable value="#{charityViewBean.getAllActivitiesFromCauseId(param['theCause'])}" var="activity">
+            <h:column>    				
+                <f:facet name="header">Activity Name</f:facet>    				
+                    #{activity.activityname}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity Description</f:facet>
+                    #{activity.activitydescription}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Activity Profile</f:facet>
+                <h:button value="Go" outcome="activityprofile">
+                    <f:param name="theActivity" value = "#{activity.id}"/> 
+                </h:button>
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>
+

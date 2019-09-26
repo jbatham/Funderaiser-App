@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Make a donation</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Donate to a activity!"/>
+        <h:form>
+            <br/><br/>
+            Fill in the details and submit your donation!
+            <br/><br/>
+            <h:outputLabel for="activityid" value="*Activity id:"/>
+            <h:inputText id ="activityid" value="#{donationBean.activityid}" title="Enter activity id" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/><br/>
+            <h:outputLabel for="amount" value="*Amount:"/>
+            <h:inputTextarea id ="amount" value="#{donationBean.amount}" title="Enter a donation amount" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/><br/>
+            <h:commandButton id="register" type="submit" value="Donate" action="#{donationBean.Donate}" title="Donate"/> &nbsp;&nbsp;
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+        <br/><br/><br/><br/>
+        <h:dataTable value="#{listActivityBean.getAllActivities()}" var="activity">
+            <h:column>    				
+                <f:facet name="header">Activity Identifier</f:facet>    				
+                    #{activity.id}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity Name</f:facet>
+                    #{activity.activityname}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity Description</f:facet>
+                    #{activity.activitydescription}
+            </h:column>
+            <br/>
+        </h:dataTable>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create an activity</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="User Page"/>
+        <h:form>
+            Fill in the details and press the register button.
+            <br/><br/>
+            Take a look at the cause list below and choose an identifier
+            <br/>
+            <h:outputLabel for="causeid" value="*Cause identification number:"/>
+            <h:inputText id ="causeid" value="#{activityRegBean.causeid}" title="Enter activity name" required="true" requiredMessage="Mandatory Field"/>
+            <br/><br/>
+            <h:outputLabel for="activityname" value="*Activity name:"/>
+            <h:inputText id ="activityname" value="#{activityRegBean.activityname}" title="Enter activity name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/><br/>
+            <h:outputLabel for="description" value="*Description:"/>
+            <h:inputTextarea id ="description" value="#{activityRegBean.activitydescription}" title="Enter activity description" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/><br/>
+            <h:commandButton id="register" type="submit" value="Register" action="#{activityRegBean.registerActivity}" title="Register Activity"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+        <br/><br/><br/><br/><br/>
+        Check the list of causes below and register your activity using an identifier
+        <br/><br/>
+
+        <h:dataTable value="#{listCauseBean.getAllCauses()}" var="cause">
+            <h:column>    				
+                <f:facet name="header">Cause Identifier</f:facet>    				
+                    #{cause.causeid}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Cause name</f:facet>
+                    #{cause.causename}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Cause bio</f:facet>
+                    #{cause.causedescription}
+            </h:column>
+            <br/>
+        </h:dataTable>
+    </h:body>
+</html>
+

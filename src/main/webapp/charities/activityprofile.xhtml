@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Activity Profile</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Cause Profile"/>
+        <br/><br/><br/>
+        Activity Details
+        <h:dataTable value="#{charityViewBean.getActivityById(param['theActivity'])}" var="activity">
+            <h:column>    				
+                <f:facet name="header">Activity Name</f:facet>    				
+                    #{activity.activityname}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Activity Description</f:facet>
+                    #{activity.activitydescription}
+            </h:column>
+        </h:dataTable>
+        <br/><br/><br/>
+
+        Activities
+        <br/><br/>
+        <h:dataTable value="#{charityViewBean.getAllDonationsFromActivityId(param['theActivity'])}" var="donation">
+            <h:column>    				
+                <f:facet name="header">Donator name</f:facet>    				
+                    #{donation.donator.name}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Donation amount</f:facet>
+                    #{donation.amount}
+            </h:column>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Donation date</f:facet>
+                    #{donation.dateofdonation}
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>
+

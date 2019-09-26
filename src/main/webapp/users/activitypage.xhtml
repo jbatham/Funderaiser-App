@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User List</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Activity Page"/>
+        <br/><br/><br/>
+        
+        <h:dataTable value="#{userViewBean.getAllDonationsFromActivityId(param['theId'])}" var="donation">
+            <h:column>    				
+                <f:facet name="header">Donation id</f:facet>    				
+                    #{donation.donationid}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Amount</f:facet>
+                    #{donation.amount}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Donator Name</f:facet>
+                    #{donation.donator.name}
+            </h:column>
+            &nbsp;&nbsp;
+            <h:column>
+                <f:facet name="header">Donator Date</f:facet>
+                    #{donation.dateofdonation}
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>
+

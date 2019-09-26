@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Register a cause</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Register a cause"/>
+        <h:form>
+            Fill in the details and press the register button.
+            <br/>
+            <h:outputLabel for="causename" value="*Cause name:"/>
+            <h:inputText id ="causename" value="#{causeRegBean.causename}" title="Enter cause name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/>
+            <h:outputLabel for="causedescription" value="*Description:"/>
+            <h:inputTextarea id ="causedescription" value="#{causeRegBean.causedescription}" title="Enter description" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <br/>
+            <h:commandButton id="registerCause" type="submit" value="Register" action="#{causeRegBean.registerCause}" title="Register Activity"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+            <br/><br/><br/><br/>
+            
+
+
+
+
+        </h:form>
+
+
+
+
+
+
+
+
+
+    </h:body>
+</html>
+
