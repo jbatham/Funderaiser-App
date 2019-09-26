@@ -1,7 +1,7 @@
 # Funderaiser-App
 Java EE Fundraising project which allows users to donate to charities through fundraising activities.
 
-Users can either register as charities or fundraisers. Charities are able to register charitable causes. Fundraising users can create activities for specific causes, and they are also able to donate towards the activites. The donations are then forwarded to the charities through the assosciated cause.
+Users can either register as charities or fundraisers. Charities are able to register charitable causes. Fundraising users can create activities for a specific cause, and they are also able to donate towards the activites. The donations are then forwarded to the charities through the assosciated cause.
 
 This was a coursework which required us to write up the business logic using Enterprise Java Beans (EJBs) and data storage using Java Persistence API.
 
